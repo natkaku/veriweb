@@ -1,0 +1,14 @@
+-- Get the user fullname
+DROP FUNCTION IF EXISTS get_users_fullname;
+DELIMITER //  
+CREATE FUNCTION get_users_fullname(s_id INT(10)) RETURNS VARCHAR(100)
+ 
+BEGIN
+	SET @sh := '';
+	IF s_id <> 0 THEN
+		SET @sh := (SELECT fullname FROM users WHERE id=s_id);
+	END IF;
+
+	RETURN @sh;
+END;
+// 

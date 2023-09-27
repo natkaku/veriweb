@@ -1,0 +1,164 @@
+<script src="js/Schools.js"></script>
+<br>
+    <div class="container">
+        <h3>School Profile
+            
+            <button id="btnSearchButton" class="btn btn-primary pull-right"
+            title='Search' style="margin-right: 10px;"> <span class="fa fa-search"></span> </button>
+
+        <input id="txtSearch" class="form-control pull-right" type="search" placeholder="Search by School" aria-label="Search" style="width: 250px; margin-right: 10px;">
+
+        </h3>
+        <hr/>
+            <div class="row table-responsive">
+                <table class="table table-striped table-bordered table-sm" id="userTable"></table>
+            </div>
+   
+    </div>
+
+    <!-- Modal User-->
+<div id="userModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="addUserTitle">Update School</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+           
+        <form id="user_add" method="post">
+          <div class="modal-content">
+                <input type="hidden" id="hidden_id" />
+                <input type="hidden" id="hidden_menu" />
+
+            <div class="row">            
+                  <div class="col-sm-3">  
+                 School ID 
+                    
+                  </div>
+                
+                  <div class="col-sm-9">  
+                      <input type="number" class="form-control" id="txtschool_id" placeholder="Enter School ID" required />
+                  </div>
+          </div>
+
+          <div class="row">            
+               <div class="col-sm-12">  
+                Name of School
+                <input type="text" class="form-control" id="txtschool_name" placeholder="Enter Name of School" required />
+            </div>
+        </div>
+
+  
+
+       <div class="row"> 
+
+        <div class="col-sm-12">  
+            <label>District: </label>
+            <input type="text" class="form-control" id="txtdistrict" placeholder="District" list="districtlist"  />
+            <datalist id="districtlist">
+                <option value="BASUD"></option>
+                <option value="CAPALONG"></option>
+                <option value="DAET NORTH"></option>
+                <option value="DAET SOUTH"></option>
+                <option value="JOSE PANGANIBAN EAST"></option>
+                <option value="JOSE PANGANIBAN WEST"></option>
+                <option value="LABO EAST"></option>
+                <option value="LABO WEST"></option>
+                <option value="MERCEDES"></option>
+                <option value="PARACALE"></option>
+                <option value="SAN VICENTE-SAN LORENZO RUIZ"></option>
+                <option value="STA. ELENA"></option>
+                <option value="TALISAY"></option>
+                <option value="VINZONS"></option>
+               
+            </datalist>
+          </div>
+
+        
+       </div>
+
+<div class="row"><br/> </div>
+
+
+    <div class="row"> <div class="col-sm-12">
+      <input type="hidden" id="h_sh" />
+      <label>School Head: </label> <strong><span id="sh">Select Name of School Head</span></strong> <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#staticBackdrop" id="btn_sh"  data-code="sh" title="Select School Head"><i class='fa fa-edit'></i></button>
+      <button type="button" class="btn btn-sm btn-danger" id="btn_clear_sh"  data-code="sh" title="Remove School Head"><i class='fa fa-remove'></i></button>
+    </div> </div>
+
+    <div class="row"> <div class="col-sm-12">
+      <input type="hidden" id="h_sup" />
+      <label>Supervisor: </label> <strong><span id="sup">Select Name of Supervisor</span></strong> <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#staticBackdrop" id="btn_sup"  data-code="sup" title="Select Supervisor"><i class='fa fa-edit'></i></button>
+      <button type="button" class="btn btn-sm btn-danger" id="btn_clear_sup"  data-code="sup" title="Remove Supervisor"><i class='fa fa-remove'></i></button>
+    </div> </div>
+
+    </div>
+
+        <div class="modal-footer">
+  
+        <button type="submit"  class="btn btn-success" id="btnSchoolSave" >Save</button>
+        <button type="submit"  class="btn btn-primary" id="btnSchoolUpdate" >Update</button>
+  
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form> </div>
+        </div>
+      </div>
+  
+    </div>
+  </div> <!--end modal user-->
+
+   <!--Pagination-->
+ <div class="container">
+  <div class="row">
+
+    <div class="col-sm text-left">
+    
+      <p class="pull-right"> No. of Records: <strong id="lblRecords" class="text-danger"></strong> </p>
+    </div>
+
+  </div>
+
+</div> 
+<!--End Pagination-->
+
+<!-- Modal -->
+<div class="modal" id="staticBackdrop" role="dialog" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title" id="staticBackdropLabel">Select Users/Personnel</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="hidden_code" />
+
+        <div class="row">
+        
+      <input id="txtSearchUser" class="form-control input-group-sm" type="search" placeholder="Search by Name" aria-label="Search" style="width: 250px; margin-right: 10px;"> 
+      <button id="btnSearchButtonUser" class="btn btn-primary btn-sm"title="Search" > <span class="fa fa-search"></span> </button>
+        </div>
+<br/>
+        <div class="row">
+         
+          <table class="table table-striped table-bordered table-sm" id="tbl_users">
+            <thead><tr>
+                <td>ID</td>
+                <td>Employee Name</td>
+                <td>Action</td>
+            </tr></thead>
+          </table>
+      
+      </div>
+      </div>
+      <div class="modal-footer bg-warning">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Modal-->

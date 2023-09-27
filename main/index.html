@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeriWeb</title>
+
+
+<link href="../assets/css/bootstrap.min.css"  rel="stylesheet" > 
+<link  href="../assets/css/font-awesome.min.css" rel="stylesheet"> 
+<script src="../assets/js/jquery-3.3.1.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script> 
+
+  <script src="../assets/js/sweetalert.js"></script>
+  <script src="route.js"></script>
+
+    <script src="js/functions.js"></script>
+    
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" href="#" id="title" >VeriWeb</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="record" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Certification</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/zoning/main/zoning">Zoning</a>
+          <a class="dropdown-item" href="lottitling.html">Lot Titling</a>
+          <a class="dropdown-item" href="#User">Users</a>
+         
+        </div>
+      </li> -->
+      <li class="nav-item"> 
+        <a class="nav-link" href="#schools" id="schools">School Profile</a>
+    </li>
+    <li class="nav-item"> 
+      <a class="nav-link" href="#diploma" id="diploma">Certification</a>
+  </li>
+
+  <li class="nav-item"> 
+    <a class="nav-link" href="#certification" id="certification">Certification</a>
+</li>
+
+  <li class="nav-item"> 
+    <a class="nav-link" href="#verification" id="verification">Verification</a>
+</li>
+
+  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="settings" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#changepassword">Change Password</a>
+       
+         
+        </div>
+      </li>
+      <li class="nav-item"> 
+        <a class="nav-link" href="#user" id="user">Users</a>
+    </li>
+
+       </ul><ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+        <span class="badge" style="color:white;"><a class="nav-link"  tabindex="-1" aria-disabled="true" id="username"></a></span>
+
+        <a class="nav-link" href="../api/logout.php" tabindex="-1" aria-disabled="true"><span class="fa fa-sign-out"></span> Logout</a>
+    </ul>
+   </div>
+  </nav>
+
+  <div id="main-page">
+     
+  </div>
+
+  <div id="modals">
+     
+  </div>
+
+<div class="container">
+  <hr>
+</div>
+  <div class="container">
+    <span id="school_name"></span> <span class="pull-right" id="school_head"></span>
+</div>
+
+<!-- <div class="container">
+  <div class="accordion" id="accordionCert">
+    
+    <div class="card">
+      <div class="card-header" id="heading1">
+        <h1 class="mb-0">
+          <button class="btn btn-info btn-block text-left" type="button" data-toggle="collapse" data-target="#cert1" aria-expanded="false" aria-controls="collapse1" id="btncert1">
+          Certification 1 
+          </button>
+        </h1>
+      </div>
+  
+      <div id="cert1" class="collapse show" aria-labelledby="heading1" data-parent="#accordionCert">
+        <div class="card-body">
+          <button id="btnEdit" data-toggle="modal" data-target="#userModal" class="btn btn-secondary pull-left"
+          title='Edit Details'> <span class="fa fa-edit"></span> Edit Certication</button>
+
+
+          <button id="btnAdd" data-toggle="modal" data-target="#userModal" class="btn btn-success pull-right"
+          title='Add Graduate'> <span class="fa fa-plus"></span> Add Graduate</button>
+
+
+          <input id="txtSearch" class="form-control pull-right" type="search" placeholder="Search by Name" aria-label="Search" style="width: 250px; margin-right: 10px;">
+<br>
+<br>
+          <hr/>
+          <div class="row table-responsive">
+              <table class="table table-striped table-bordered table-sm" id="tablecert1">
+                <thead><tr>
+                  <th>#</th>
+                  <th>LRN</th>
+                 <th>Name of Graduates</th>
+                 <th>Sex</th>
+             <th>Action</th>
+             </tr></thead><tbody id='myTable1'>
+
+              </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-header" id="heading2">
+        <h2 class="mb-0">
+          <button class="btn btn-info btn-block text-left" type="button" data-toggle="collapse" data-target="#cert2" aria-expanded="true" aria-controls="collapse2" id="btncert2">
+          Certification 2 
+          </button>
+        </h2>
+      </div>
+  
+      <div id="cert2" class="collapse show" aria-labelledby="heading2" data-parent="#accordionCert">
+        <div class="card-body">
+          <button id="btnEdit" data-toggle="modal" data-target="#userModal" class="btn btn-secondary pull-left"
+          title='Edit Details'> <span class="fa fa-edit"></span> Edit Certication</button>
+
+
+          <button id="btnAdd" data-toggle="modal" data-target="#userModal" class="btn btn-success pull-right"
+          title='Add Graduate'> <span class="fa fa-plus"></span> Add Graduate</button>
+
+
+          <input id="txtSearch" class="form-control pull-right" type="search" placeholder="Search by Name" aria-label="Search" style="width: 250px; margin-right: 10px;">
+<br>
+<br>
+          <hr/>
+          <div class="row table-responsive">
+              <table class="table table-striped table-bordered table-sm" id="tablecert2">
+                <thead><tr>
+                  <th>#</th>
+                  <th>LRN</th>
+                 <th>Name of Graduates</th>
+                 <th>Sex</th>
+             <th>Action</th>
+             </tr></thead><tbody id='myTable2'>
+
+              </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+   
+
+  </div>
+</div> -->
+
+</body>
+</html>
+<script>
+
+      load_window();
+       
+
+</script>

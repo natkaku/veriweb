@@ -1,0 +1,145 @@
+<script src="js/users.js"></script>
+<br>
+    <div class="container-fluid">
+        <h3>Users
+            <button id="btnAdd" data-toggle="modal" data-target="#userModal" class="btn btn-success pull-right"
+            title='Add New User'> <span class="fa fa-plus"></span> New User</button>
+            <button id="btnSearchButton" class="btn btn-primary pull-right"
+            title='Search' style="margin-right: 10px;"> <span class="fa fa-search"></span> </button>
+
+        <input id="txtSearch" class="form-control pull-right" type="search" placeholder="Search by Name" aria-label="Search" style="width: 250px; margin-right: 10px;">
+
+        </h3>
+        <hr/>
+            <div class="row table-responsive">
+                <table class="table table-striped table-bordered table-sm" id="userTable"></table>
+            </div>
+   
+    </div>
+
+    <!-- Modal User-->
+<div id="userModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="addUserTitle">Add User</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+           
+        <form id="user_add" method="post">
+          <div class="modal-content">
+                <input type="hidden" id="hidden_id" />
+                <input type="hidden" id="hidden_menu" />
+
+            <div class="row">            
+                    <div class="col-sm-3">  
+                     User Role: 
+                    </div>
+                  
+                    <div class="col-sm-9">  
+                      <select  class="form-control" id="cboUserRole" required >
+                        <option value selected disabled>Select</option>
+                        <option value="School Head">School Head</option>
+                        <option value="Supervisor">Supervisor</option>
+                        <option value="Administrator">Administrator</option>
+                      </select> 
+                    </div>
+            </div>
+  
+            <div class="row">            
+                  <div class="col-sm-3">  
+                   Employee ID 
+                    
+                  </div>
+                
+                  <div class="col-sm-9">  
+                      <input type="number" class="form-control" id="txtemployee_id" placeholder="Enter Employee ID" required />
+                  </div>
+          </div>
+
+        <div class="row">            
+            <div class="col-sm-6">  
+              <label> </label>
+                <input type="text" class="form-control" id="txtlastname" placeholder="Enter Lastname" required />
+            </div>
+          
+            <div class="col-sm-6">  
+                <label> </label><input type="text" class="form-control" id="txtfirstname" placeholder="Enter Firstname" required />
+            </div>
+       </div>
+
+       <div class="row"> 
+            <div class="col-sm-6">  
+            <input type="text" class="form-control" id="txtmiddlename" placeholder="Enter Middlename"  />
+           </div>
+
+           <div class="col-sm-6">  
+            <input type="text" class="form-control" id="txtextension" placeholder="Extension (Jr., Sr., II)"  />
+           </div>
+        </div>
+
+       <div class="row"> 
+
+        <div class="col-sm-6">  
+            <label>Designation: </label>
+            <input type="text" class="form-control" id="txtdesignation" placeholder="Designation" list="designationlist"  />
+            <datalist id="designationlist">
+                <option value="Principal"></option>
+                <option value="Teacher In-charge"></option>
+                <option value="Master Teacher"></option>
+                <option value="Head Teacher"></option>
+                <option value="Teacher"></option>
+                <option value="Senior Bookkeeper"></option>
+                <option value="Administrative Officer II"></option>
+               
+            </datalist>
+          </div>
+
+            <div class="col-sm-6">  
+            <label>Email: </label> <input type="email" class="form-control" id="txtemail" placeholder="Email"  />
+          </div>
+
+       </div>
+
+       <div class="row"> 
+        <div class="col-sm-6">  
+            <label>Address: </label> <input type="text" class="form-control" id="txtaddress" placeholder="Address"  />
+          </div>
+
+            <div class="col-sm-6">  
+            <label>Contact No: </label> <input type="text" class="form-control" id="txtcontactno" placeholder="Ex: 0909 xxx xxxx"  />
+          </div>
+         
+        </div>
+ 
+    </div>
+
+        <div class="modal-footer">
+  
+        <button type="submit"  class="btn btn-success" id="btnUserSave" >Save</button>
+        <button type="submit"  class="btn btn-primary" id="btnUserUpdate" >Update</button>
+  
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form> </div>
+        </div>
+      </div>
+  
+    </div>
+  </div> <!--end modal user-->
+
+   <!--Pagination-->
+ <div class="container">
+  <div class="row">
+
+    <div class="col-sm text-left">
+    
+      <p class="pull-right"> No. of Records: <strong id="lblRecords" class="text-danger"></strong> </p>
+    </div>
+
+  </div>
+
+</div> 
+<!--End Pagination-->

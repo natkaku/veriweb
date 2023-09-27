@@ -1,0 +1,10 @@
+-- Add to logrecord
+DROP PROCEDURE IF EXISTS logrecord;
+DELIMITER //  
+CREATE PROCEDURE logrecord(u_id INT(10),logmsg VARCHAR(255))
+ 
+BEGIN
+	INSERT INTO logrecord(sDateTime,user_id,logMessage) values(DATE_ADD(NOW(), INTERVAL 8 HOUR),u_id,logmsg);
+END;
+// 
+

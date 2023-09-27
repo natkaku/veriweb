@@ -1,0 +1,5 @@
+-- set unique two column in graduates table
+CREATE UNIQUE INDEX lrn_certid ON graduates (lrn, cert_id);
+
+-- set unique two column in certification table
+CREATE UNIQUE INDEX school_yearANDgraduates_ofANDsch_id ON certification (school_year, graduate_of,sch_id);

@@ -1,0 +1,187 @@
+<script src="js/diploma.js"></script>
+<br>
+    <div class="container">
+        <h3>Certification
+            <button id="btnAdd" data-toggle="modal" data-target="#userModal" class="btn btn-success pull-right"
+            title='Add New User'> <span class="fa fa-plus"></span> New Certication</button>
+
+            <select  class="form-control pull-right" id="cboSchoolYear" style="width: 200px; margin-right: 10px;" required >
+              <option value selected disabled>Select School Year</option>
+              <option value="2022-2023">2022-2023</option>
+            </select>
+        </h3>
+        <hr/>
+        <div class="container">
+            <div class="accordion" id="accordionCert">
+
+            </div>
+        </div>
+   
+    </div>
+
+    <!-- Modal User-->
+<div id="userModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="addUserTitle">Add Certification</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <form id="user_add" method="post">
+        <div class="modal-body">
+           
+      
+          <div class="modal-content">
+                <input type="hidden" id="hidden_id" />
+                <input type="hidden" id="hidden_menu" />
+                <input type="hidden" id="hidden_cert_id" />
+
+            <div class="row">            
+                                    
+                    <div class="col-sm-6">  
+                        <label>School Year</label>
+                      <select  class="form-control" id="cboschoolyear" required >
+                        <option value selected disabled>Select</option>
+                        <option value="2022-2023">2022-2023</option>
+                      </select> 
+                    </div>
+
+                    <div class="col-sm-6">  
+                        <label>Graduate of</label>
+                      <select  class="form-control" id="cbograduateof" required >
+                        <option value selected disabled>Select</option>
+                        <option value="Kinder">Kinder</option>
+                        <option value="Elementary">Elementary</option>
+                        <option value="Junior High School">Junior High School</option>
+                        <option value="Senior High School">Senior High School</option>
+                      </select> 
+                    </div>
+            </div>
+
+    
+  
+        <div class="row">            
+                                    
+            <div class="col-sm-6">  
+                <label>Date of Graduation</label>
+                <input type="date" class="form-control" id="dtpdate" placeholder="mm/dd/yyyy" required/>
+            </div>
+            <div class="col-sm-6">  
+                <label>Place of Graduation</label>
+                <input type="text" class="form-control" id="txtvenue" placeholder="Enter place/venue" required />
+            </div>
+         </div>
+
+         <div class="row">            
+                                
+            <div class="col-sm-12">  
+                <label>Name of School Head</label>
+                <input type="text" class="form-control" id="txtschoolhead" placeholder="Enter Name of School Head" required />
+            </div>
+         </div>
+         <div class="row">            
+                                
+            <div class="col-sm-12">  
+                <label>Schools Division Superintendent</label>
+                <select  class="form-control" id="cbosds" required >
+                    <option value selected disabled>Select</option>
+                    <option value="CRESTITIO M. MORCILLA, CESO VI">CRESTITIO M. MORCILLA, CESO VI</option>
+                  </select> 
+            </div>
+         </div>
+          
+   
+       </div>
+ 
+    </div>
+
+        <div class="modal-footer">
+  
+        <button type="submit"  class="btn btn-success" id="btnUserSave" >Save</button>
+        <button type="submit"  class="btn btn-primary" id="btnUserUpdate" >Update</button>
+  
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       </div>  </form>
+        </div>
+      </div>
+  
+    </div>
+  </div> <!--end modal user-->
+
+   <!-- Modal Graduates-->
+<div id="graduateModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="graduateTitle">Add User</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+         
+      <form id="graduate_add" method="post">
+        <div class="modal-content">
+   
+          <div class="row">            
+                  <div class="col-sm-12"> 
+                    <label> LRN: </label> 
+                    <input type="number" class="form-control" id="txtlrn" placeholder="Enter LRN" required />
+                  </div>
+          </div>
+
+          <div class="row">            
+            <div class="col-sm-6">  
+              <label> </label>
+                <input type="text" class="form-control" id="txtlastname" placeholder="Enter Lastname" required />
+            </div>
+          
+            <div class="col-sm-6">  
+                <label> </label><input type="text" class="form-control" id="txtfirstname" placeholder="Enter Firstname" required />
+            </div>
+       </div>
+  
+       <div class="row"> 
+            <div class="col-sm-6">  
+            <input type="text" class="form-control" id="txtmiddlename" placeholder="Enter Middlename"  />
+           </div>
+  
+           <div class="col-sm-6">  
+            <input type="text" class="form-control" id="txtextension" placeholder="Extension (Jr., Sr., II)"  />
+           </div>
+        </div>
+
+          <div class="row">            
+                <div class="col-sm-6">  
+                <label>Birth Date</label>
+                <input type="date" class="form-control" id="dtpbirthdate" placeholder="mm/dd/yyyy" required/>
+                </div>
+              
+                <div class="col-sm-6">  
+                  <label>Sex</label>
+                  <select  class="form-control" id="cbosex" required >
+                    <option value selected disabled>Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select> 
+                </div>
+        </div>
+
+     
+  </div>
+
+      <div class="modal-footer">
+
+      <button type="submit"  class="btn btn-success" id="btnGraduateSave" >Save</button>
+      <button type="submit"  class="btn btn-primary" id="btnGraduateUpdate" >Update</button>
+
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </form> </div>
+      </div>
+    </div>
+
+  </div>
+</div> <!--end modal graduates-->
+
